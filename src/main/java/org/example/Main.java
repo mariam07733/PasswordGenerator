@@ -15,24 +15,9 @@ public class Main {
 
         System.out.print("Entrez la longueur du mot de passe : ");
         int longueur = scanner.nextInt();
+        System.out.print("Combien de mots de passe voulez-vous générer ? ");
+        int nombre = scanner.nextInt();
 
-        System.out.print("Inclure des majuscules ? (O/N) : ");
-        String reponseMaj = scanner.next();
-
-        System.out.print("Inclure des minuscules ? (O/N) : ");
-        String reponseMin = scanner.next();
-
-        System.out.print("Inclure des chiffres ? (O/N) : ");
-        String reponseChiffres = scanner.next();
-
-        System.out.print("Inclure des symboles ? (O/N) : ");
-        String reponseSymboles = scanner.next();
-        System.out.println("\n===== PARAMÈTRES CHOISIS =====");
-        System.out.println("Longueur : " + longueur);
-        System.out.println("Majuscules : " + reponseMaj);
-        System.out.println("Minuscules : " + reponseMin);
-        System.out.println("Chiffres : " + reponseChiffres);
-        System.out.println("Symboles : " + reponseSymboles);
 
         System.out.print("Inclure des majuscules ? (true/false) : ");
         boolean majuscules = scanner.nextBoolean();
@@ -63,5 +48,10 @@ public class Main {
 
         System.out.println("\n===== MOT DE PASSE GÉNÉRÉ =====");
         System.out.println(motDePasse);
+        PasswordStrength niveau = PasswordValidator.evaluate(motDePasse);
+
+        System.out.println();
+        System.out.println("===== NIVEAU DE SÉCURITÉ =====");
+        System.out.println("Force : " + niveau);
     }
 }
